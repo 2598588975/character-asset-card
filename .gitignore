@@ -1,0 +1,21 @@
+# Local credentials and configuration
+.env
+.env.*
+*.pem
+*.key
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Project outputs are kept outside the distributable skill
+work/
+outputs/
