@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Compare integer-position card regions with their native source PNG pixels.
+
 Usage: verify_native_pixels.py CARD.png MAP.json --report REPORT.json
 MAP is a list of {id, source, x, y, width, height}; source paths are absolute
 or relative to MAP.json. This reads images only and never resizes them.
@@ -8,7 +9,10 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+
 from PIL import Image, ImageChops
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('card', type=Path)
@@ -60,5 +64,7 @@ def main():
         json.dump(report, handle, ensure_ascii=False, indent=2)
     print(f"Native pixel match: {sum(r['pixels_identical'] for r in results)}/{len(results)}")
     raise SystemExit(0 if passed else 1)
+
+
 if __name__ == '__main__':
     main()
